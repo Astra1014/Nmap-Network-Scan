@@ -23,15 +23,30 @@ An Apache web server was installed on the Kali machine to create an active servi
 
 ## Commands Used
 
-### 1. Basic Scan
+### 1. Check Kali IP Address
+
+hostname -I
+
+### 2. Check Nmap Version
+
+nmap --version
+
+### 3. Basic Scan
 
 nmap 192.168.56.101
 
-### 2. Service Detection Scan
+### 4. Service Detection Scan
 
 nmap -sV 192.168.56.101
 
+### 5. Install Apache Web Server on Kali
 
+sudo apt update
+sudo apt install apache2 -y
+
+### 6. Start Apache Server
+
+sudo systemctl start apache2
 
 ## Scan Results
 
