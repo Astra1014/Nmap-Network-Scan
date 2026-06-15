@@ -1,0 +1,85 @@
+# Nmap Scan Results
+
+Target IP: 192.168.56.101
+Scan Tool: Nmap 7.99
+Scanning Machine: Windows Host
+Target Machine: Kali Linux VM (VirtualBox Host-Only Network)
+Date: 2026-06-15
+
+1. Basic Nmap Scan
+
+Command:
+nmap 192.168.56.101
+
+Result:
+Host is up (low latency).
+
+All 1000 scanned ports are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+Conclusion:
+No open ports were initially detected on the target system.
+
+
+2. Service Detection Scan (After Apache Installation)
+
+Command:
+nmap -sV 192.168.56.101
+
+Result:
+Host is up (low latency).
+
+PORT     STATE SERVICE
+80/tcp   open  http
+
+Service Information:
+
+* Port 80: HTTP (Apache Web Server)
+
+
+3. Advanced Scan (SYN + Service Detection + No Ping)
+
+Command:
+nmap -sS -sV -Pn 192.168.56.101
+
+Result:
+Host is up.
+
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache HTTP Server
+
+
+4. Network Information
+
+MAC Address: 08:00:27:04:42:0F (Oracle VirtualBox Virtual NIC)
+
+Latency: ~0.002 - 0.004 seconds
+
+
+5. Summary of Findings
+
+* One open port detected: 80/tcp (HTTP)
+* Service running: Apache HTTP Server
+* Target system is reachable and responsive on local virtual network
+
+
+6. Security Notes
+
+Port 80 (HTTP):
+
+* Used for web traffic
+* Data is transmitted in plain text (not encrypted)
+
+Potential Risks:
+
+* Web vulnerabilities (e.g., misconfiguration, outdated Apache)
+* Unauthorized access if web server is exposed externally
+
+Recommendations:
+
+* Use HTTPS (TLS encryption) instead of HTTP
+* Regularly update Apache server
+* Restrict access using firewall rules
+* Disable unnecessary services
+
+End of Report
